@@ -27,76 +27,82 @@ import { Button } from "@/components/ui/Button";
 import InputWithLabel from "@/components/ui/InputWithLabel";
 
 export default function Formdata() {
-  const { formData, handleChange, handleQuillChange } = UseFormData();
+  const { formData, setFormData, handleChange, handleQuillChange } =
+    UseFormData();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    // Ensure the function only runs in the browser
-    if (typeof window === "undefined" || typeof document === "undefined") {
-      console.error("This code must run in the browser.");
-      return;
-    }
-
-    try {
-      // Dynamically import libraries
-      const { default: PizZip } = await import("pizzip");
-      const { default: Docxtemplater } = await import("docxtemplater");
-      const { default: JSZipUtils } = await import("jszip-utils");
-
-      // Helper function to load the docx template
-      const loadFile = (url) => {
-        return new Promise((resolve, reject) => {
-          JSZipUtils.getBinaryContent(url, (error, content) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(content);
-            }
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+    
+      try {
+        // Ensure formData is populated
+        if (!formData || Object.keys(formData).length === 0) {
+          console.error("Form data is missing.");
+          return;
+        }
+    
+        // Dynamically import libraries
+        const { default: PizZip } = await import("pizzip");
+        const { default: Docxtemplater } = await import("docxtemplater");
+        const { default: JSZipUtils } = await import("jszip-utils");
+    
+        // Helper function to load the docx template
+        const loadFile = (url) => {
+          return new Promise((resolve, reject) => {
+            JSZipUtils.getBinaryContent(url, (error, content) => {
+              if (error) {
+                reject(new Error(`Error loading file: ${error.message}`));
+              } else {
+                resolve(content);
+              }
+            });
           });
+        };
+    
+        // Load the template file
+        const content = await loadFile("/assets/template.docx");
+    
+        // Initialize PizZip and Docxtemplater
+        const zip = new PizZip(content);
+        const doc = new Docxtemplater(zip, {
+          paragraphLoop: true,
+          linebreaks: true,
         });
-      };
-
-      // Load the template file
-      const content = await loadFile("/assets/template.docx");
-
-      // Initialize PizZip and Docxtemplater
-      const zip = new PizZip(content);
-      const doc = new Docxtemplater(zip, {
-        paragraphLoop: true,
-        linebreaks: true,
-      });
-
-      // Replace placeholders with form data
-      doc.setData({
-        ...formData, // Ensure `formData` is defined and populated
-        date: new Date().toLocaleDateString(),
-      });
-
-      // Render the document
-      doc.render();
-
-      // Generate the document as a Blob
-      const out = doc.getZip().generate({
-        type: "blob",
-        mimeType:
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      });
-
-      // Trigger download in the browser
-      if (typeof document !== "undefined") {
+    
+        // Add dynamic data to the template
+        doc.setData({
+          ...formData, // Ensure formData is defined and populated
+          date: new Date().toLocaleDateString(),
+        });
+    
+        // Render the document
+        doc.render();
+    
+        // Generate the document as a Blob
+        const out = doc.getZip().generate({
+          type: "blob",
+          mimeType:
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        });
+    
+        // Trigger download in the browser
         const downloadLink = document.createElement("a");
         downloadLink.href = URL.createObjectURL(out);
         downloadLink.download = "request_form.docx";
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
-      } else {
-        console.error("Document object not available.");
+    
+      } catch (error) {
+        console.error("Error during document creation:", error);
       }
-    } catch (error) {
-      console.error("Error during document creation:", error);
-    }
+    };
+    
+
+  const printData = (e) => {
+    e.preventDefault();
+    Object.entries(formData).forEach(([key, value]) => {
+      console.log(key, value);
+    });
   };
 
   return (
@@ -109,11 +115,7 @@ export default function Formdata() {
           Document Generator
         </h1>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        method="POST"
-        className="w-full flex flex-col justify-start items-start gap-4 py-10 px-20"
-      >
+      <div className="w-full flex flex-col justify-start items-start gap-4 py-10 px-20">
         <div className="w-full flex flex-row justify-start items-start gap-2">
           <PatientInfo
             formData={formData}
@@ -142,24 +144,28 @@ export default function Formdata() {
           <Divider title={"Exam + Medications"} />
           <ExamMedications
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
           <Divider title={"Assessment Plan"} />
           <AssessmentPlan
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
           <Divider title={"Problems List"} />
           <ProblemsList
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
           <Divider title={"Family History"} />
           <FamilyHistory
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
@@ -178,12 +184,14 @@ export default function Formdata() {
           <Divider title={"Current Outpatient Medications"} />
           <CurrentOutpatient
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
           <Divider title={"Allergies"} />
           <Allergies
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
@@ -220,12 +228,14 @@ export default function Formdata() {
           <Divider title={"Next Medicare Visit"} />
           <MedicareVisit
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
           <Divider title={"Health Maintenence"} />
           <HealthMaintenence
             formData={formData}
+            setFormData={setFormData}
             handleChange={handleChange}
             handleQuillChange={handleQuillChange}
           />
@@ -242,8 +252,10 @@ export default function Formdata() {
             handleChange={handleChange}
           />
         </div>
-        <Button type="submit">Download Doc</Button>
-      </form>
+      </div>
+      <Button type="submit" onClick={handleSubmit}>
+        Download Doc
+      </Button>
     </>
   );
 }

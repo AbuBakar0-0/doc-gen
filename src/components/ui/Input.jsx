@@ -18,18 +18,12 @@ const formatPhoneNumber = (value) => {
 const Input = React.forwardRef(({ className, type, value, onChange, placeholder, ...props }, ref) => {
   const handleChange = (e) => {
     const newValue = e.target.value;
-
     // Format phone numbers or fax numbers specifically
     if (placeholder.toLowerCase().includes("phone") || placeholder.toLowerCase().includes("fax")) {
       const formattedValue = formatPhoneNumber(newValue);
-      if (onChange) {
-        onChange({ ...e, target: { ...e.target, value: formattedValue } });
-      }
-    } else {
-      if (onChange) {
-        onChange(e);
-      }
+      e.target.value = formattedValue;
     }
+    onChange(e);
   };
 
   return (

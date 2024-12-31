@@ -1,8 +1,9 @@
 import InputWithLabel from "./ui/InputWithLabel"
+import TextEditor from "./ui/TextEditor"
 
 export const PhysiciansInfo = ({ formData, handleChange, handleQuillChange }) => {
     return (
-        <div className="w-1/2 flex flex-wrap justify-start gap-x-2">
+        <div className="w-1/2 flex flex-wrap justify-between gap-x-2">
             <InputWithLabel
                 title="Physician Name"
                 id="physician_name"
@@ -59,13 +60,13 @@ export const PhysiciansInfo = ({ formData, handleChange, handleQuillChange }) =>
                 value={formData.physician_fax_number}
                 onChange={handleChange}
             />
-            {/* <TextEditor
+            <TextEditor
                 title="Diagnosis"
                 id="diagnosis"
                 width="w-full"
                 value={formData.diagnosis} // Controlled value
                 onChange={(content, id) => handleQuillChange(content, id)} // Pass to handleQuillChange
-            /> */}
+            />
         </div>
     )
 }

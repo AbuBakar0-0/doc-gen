@@ -1,64 +1,72 @@
-import InputWithLabel from "./ui/InputWithLabel"
+import RadioButtons from "./ui/RadioButtons"
 
 
 export const ADLs = ({ formData, handleChange, handleQuillChange }) => {
     return (
-        <div className="w-full flex flex-wrap justify-start items-start gap-2">
-            <InputWithLabel
-                title="Walk and Transfer"
+        <div className="w-full flex flex-wrap justify-between items-start gap-2">
+            <RadioButtons
+                title="Walk and transfer into and out of bed and chair?"
                 id="walk_and_transfer"
-                width="w-[49%]"
-                value={formData.walk_and_transfer}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.walk_and_transfer} // Pass the current value
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Dress and Groom"
+            <RadioButtons
+                title="Dress and groom yourself?"
                 id="dress_and_groom"
-                width="w-[49%]"
-                value={formData.dress_and_groom}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.dress_and_groom} // Pass the current value
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Bathe or Shower"
+            <RadioButtons
+                title="Bathe or Shower yourself?"
                 id="bathe_or_shower"
-                width="w-[49%]"
-                value={formData.bathe_or_shower}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.bathe_or_shower} // Pass the current value
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Feed Yourself"
+            <RadioButtons
+                title="Feed yourself?"
                 id="feed_yourself"
-                width="w-[49%]"
-                value={formData.feed_yourself}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.feed_yourself} // Pass the current value
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Laundry"
+            <RadioButtons
+                title="Do your laundry/housekeeping?"
                 id="laundry"
-                width="w-[49%]"
-                value={formData.laundry}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.laundry} // Pass the current
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Manage Money"
+            <RadioButtons
+                title="Manage your money, pay your bills and track your expenses?"
                 id="manage_money"
-                width="w-[49%]"
-                value={formData.manage_money}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.manage_money} // Pass the current
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Make Meals"
+            <RadioButtons
+                title="Make your own meals?"
                 id="make_meals"
-                width="w-[49%]"
-                value={formData.make_meals}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.make_meals} // Pass the current
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
-            <InputWithLabel
-                title="Do Shopping"
+            <RadioButtons
+                title="Do your own shopping?"
                 id="do_shopping"
-                width="w-[49%]"
-                value={formData.do_shopping}
-                onChange={handleChange}
+                options={["Yes", "No"]}
+                value={formData.do_shopping} // Pass the current
+                handleChange={handleChange} // Pass the change handler
+                width="w-[20%]"
             />
         </div>
     )

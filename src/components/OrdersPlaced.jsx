@@ -2,7 +2,7 @@ import InputWithLabel from "./ui/InputWithLabel"
 
 export const OrdersPlaced = ({ formData, handleChange, handleQuillChange }) => {
     return (
-        <div className="w-full flex flex-wrap justify-start items-start gap-2">
+        <div className="w-full flex flex-wrap justify-between items-start gap-2">
             <InputWithLabel
                 title="Orders Placed"
                 id="orders_placed_2"

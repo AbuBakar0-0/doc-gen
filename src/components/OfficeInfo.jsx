@@ -1,9 +1,11 @@
 import React from 'react'
 import InputWithLabel from './ui/InputWithLabel'
+import { Divider } from './ui/Divider';
+import TextEditor from './ui/TextEditor';
 
 const OfficeInfo=({formData,handleChange,handleQuillChange})=> {
     return (
-        <div className='w-full flex flex-wrap justify-start items-start gap-2'>
+        <div className='w-full flex flex-wrap justify-between items-start gap-2'>
             <InputWithLabel
                 title="MRN"
                 id="mrn"
@@ -47,6 +49,7 @@ const OfficeInfo=({formData,handleChange,handleQuillChange})=> {
                 value={formData.reason_for_visit}
                 onChange={handleChange}
             />
+            <Divider title={"Progress Notes"}/>
             <InputWithLabel
                 title="Assessment Plan"
                 id="assessment_plan"
@@ -82,12 +85,12 @@ const OfficeInfo=({formData,handleChange,handleQuillChange})=> {
                 value={formData.chief_complaint_detail}
                 onChange={handleChange}
             />
-            <InputWithLabel
+            <TextEditor
                 title="Chief Complaint Description"
                 id="chief_complaint_description"
                 width="w-[49%]"
                 value={formData.chief_complaint_description}
-                onChange={handleChange}
+                onChange={(content, id) => handleQuillChange(content, id)} // Pass to handleQuillChange
             />
 
         </div>

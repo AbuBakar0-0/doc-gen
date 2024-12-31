@@ -14,6 +14,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "docxtemplater": "^3.55.8",
+    "html-docx-js": "^0.3.1",
     "html2pdf.js": "^0.10.2",
     "jszip-utils": "^0.1.0",
     "lucide-react": "^0.469.0",

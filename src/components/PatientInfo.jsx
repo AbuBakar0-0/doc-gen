@@ -88,7 +88,7 @@ const PatientInfo = ({ formData, handleChange, handleQuillChange }) => {
                 id="primary_insurance"
                 value={formData.primary_insurance}
                 onChange={handleChange}
-                width="w-[49%]"
+                width="w-[49%]" 
             />
             <InputWithLabel
                 title="Policy Number"

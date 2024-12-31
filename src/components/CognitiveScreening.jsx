@@ -1,11 +1,13 @@
 import InputWithLabel from "./ui/InputWithLabel"
+import RadioButtons from "./ui/RadioButtons"
 
 
 export const CognitiveScreening = ({ formData, handleChange, handleQuillChange }) => {
     return (
-        <div className="w-full flex flex-wrap justify-start items-start gap-2">
-            <InputWithLabel
-                title="Cognitive Screening"
+        <div className="w-full flex flex-wrap justify-between items-start gap-2">
+            <RadioButtons
+                options={["Yes", "No"]}
+                title="Provider or family/friend/caregiver concerned regarding cognition?"
                 id="cognitive_screening"
                 width="w-[49%]"
                 value={formData.cognitive_screening}
@@ -54,7 +56,7 @@ export const CognitiveScreening = ({ formData, handleChange, handleQuillChange }
                 onChange={handleChange}
             />
             <InputWithLabel
-                title="AAA Screening"
+                title="Abdominal Aortic Aneurism (AAA) Screening"
                 id="aaa_screening"
                 width="w-[49%]"
                 value={formData.aaa_screening}

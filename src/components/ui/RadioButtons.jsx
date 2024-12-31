@@ -12,7 +12,6 @@ const RadioButtons = ({ title = "", id, width = "w-1/4", options = [], value, ha
                             id={id}
                             name={id}
                             value={item}
-                            checked={index === 0 || value === item} // Select the first option or the one matching the value
                             onChange={handleChange} // Trigger handleChange when selected
                         />
                         {item}

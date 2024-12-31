@@ -20,7 +20,7 @@ export const UseFormData = () => {
     ppn2: "",
     height: "",
     weight: "",
-    
+
     //======================================> Physicians Info
     physician_name: "",
     npi: "",
@@ -47,7 +47,7 @@ export const UseFormData = () => {
     chief_complaint_title: "",
     chief_complaint_detail: "",
     chief_complaint_description: "",
-    
+
     //======================================> Vitals
     date_time: "",
     bp: "",
@@ -64,15 +64,19 @@ export const UseFormData = () => {
     height_in_meter: "",
     bmi: "",
     bsa: "",
-    
+
     //======================================> Exam + Medication
     physical_exam: "",
-    medication_list_title: "",
-    medication_list_description: "",
-    medication_list_refills: "",
-    medication_list_start_date: "",
-    medication_list_end_date: "",
-    assessment_title: "",
+    medicationLists: [
+      {
+        id: 1,
+        medication_list_title: "",
+        medication_list_description: "",
+        medication_list_refills: "",
+        medication_list_start_date: "",
+        medication_list_end_date: "",
+      },
+    ],
     visit_detail: "",
 
     //======================================> Assessment Plan 2
@@ -81,7 +85,7 @@ export const UseFormData = () => {
     bmi_counseling: "",
     depression_screening: "",
     depression_detail: "",
-    doctors_name_with_title: "",
+    doctors_name_with_title: [""],
     ros2_constitutional: "",
     ros2_hent: "",
     ros2_eyes: "",
@@ -94,16 +98,31 @@ export const UseFormData = () => {
 
     //======================================> Problems List
     patient_active_diagnosis: "",
-    past_medical_diagnosis: "",
-    past_medical_date: "",
-    past_surgical_procedure: "",
-    past_surgical_laterality: "",
-    past_surgical_date: "",
+    medicalDiagnosis: [
+      {
+        id: 1,
+        past_medical_diagnosis: "",
+        past_medical_date: "",
+      },
+    ],
+    surgicalProcedures: [
+      {
+        id: 1,
+        past_surgical_procedure: "",
+        past_surgical_laterality: "",
+        past_surgical_date: "",
+      },
+    ],
 
     //======================================> Family History
-    problem: "",
-    relation: "",
-    age_of_onset: "",
+    familyHistory: [
+      {
+        id: 1,
+        problem: "",
+        relation: "",
+        age_of_onset: "",
+      },
+    ],
 
     //======================================> Social History
     marital_status: "",
@@ -137,18 +156,33 @@ export const UseFormData = () => {
     housing_stability: "",
 
     //======================================> Current Outpatient Medications
-    current_outpatient_medication: "",
-    current_outpatient_sig: "",
-    current_outpatient_dispense: "",
-    current_outpatient_refill: "",
+    currentOutpatient: [
+      {
+        id: 1,
+        current_outpatient_medication: "",
+        current_outpatient_sig: "",
+        current_outpatient_dispense: "",
+        current_outpatient_refill: "",
+      },
+    ],
     facility_administered: "",
 
     //======================================> Allergies
-    allergen: "",
-    reactions: "",
+    allergens: [
+      {
+        id: 1,
+        allergen: "",
+        reactions: "",
+      },
+    ],
+    healthMaintenances: [
+      {
+        id: 1,
+        health_maintenence_topic: "",
+        health_maintenence_due_date: "",
+      },
+    ],
     immunizations: "",
-    health_maintenence_topic: "",
-    health_maintenence_due_date: "",
     medicare_screening: "",
     health_risk_assessment: "",
     phq_score: "",
@@ -208,20 +242,37 @@ export const UseFormData = () => {
 
     //======================================> Medicare Visit
     date_after_one_year: "",
-    service: "",
-    preventive_recommendations: "",
     other_preventive_screening: "",
-    previous_testing: "",
-    immunization: "",
-    immunization_recommendations: "",
+    preventive_screening: [
+      {
+        id: 1,
+        service: "",
+        preventive_recommendations: "",
+        previous_testing: "",
+      },
+    ],
+    immunizationFields: [
+      { id: 1, immunization: "", immunization_recommendations: "" },
+    ],
 
     //======================================> Health Maintanance
-    health_maintenance_topic_2: "",
-    health_maintenence_due_date_2: "",
+    healthMaintenanceFields: [
+      // Initial health maintenance field with default values
+      {
+        id: 1,
+        health_maintenance_topic: "",
+        health_maintenence_due_date: "",
+      },
+    ],
 
-    immunization_due_topic: "",
-    immunization_due_due_date: "",
-
+    immunizationFields2: [
+      // Initial immunization field with default values
+      {
+        id: 1,
+        immunization_due_topic: "",
+        immunization_due_due_date: "",
+      },
+    ],
     //======================================> Orders Placed 2
     orders_placed_2: "",
     medication_changes_2: "",
@@ -233,12 +284,13 @@ export const UseFormData = () => {
     visit_diagnosis_2_details: "",
 
     //======================================> Printed By
-    printed_by: "", 
+    printed_by: "",
   });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    console.log(id,value);
+
+    // Update the state with the new value
     setFormData((prevData) => ({
       ...prevData,
       [id]: value,
@@ -252,5 +304,5 @@ export const UseFormData = () => {
     }));
   };
 
-  return { handleChange, handleQuillChange, formData };
+  return { handleChange, handleQuillChange, formData, setFormData };
 };
