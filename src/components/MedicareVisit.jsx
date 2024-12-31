@@ -79,21 +79,21 @@ export const MedicareVisit = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Service"
                             id={`service_${field.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={field.service}
                             onChange={(e) => handlePreventiveFieldChange(field.id, 'service', e.target.value)}
                         />
                         <InputWithLabel
                             title="Preventive Recommendations"
                             id={`preventive_recommendations_${field.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={field.preventive_recommendations}
                             onChange={(e) => handlePreventiveFieldChange(field.id, 'preventive_recommendations', e.target.value)}
                         />
                         <InputWithLabel
                             title="Previous Testing"
                             id={`previous_testing_${field.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={field.previous_testing}
                             onChange={(e) => handlePreventiveFieldChange(field.id, 'previous_testing', e.target.value)}
                         />
@@ -118,14 +118,14 @@ export const MedicareVisit = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Immunization"
                             id={`immunization_${field.id}`}
-                            width="w-[46%]"
+                            width="w-[46.5%]"
                             value={field.immunization}
                             onChange={(e) => handleImmunizationFieldChange(field.id, 'immunization', e.target.value)}
                         />
                         <InputWithLabel
                             title="Immunization Recommendations"
                             id={`immunization_recommendations_${field.id}`}
-                            width="w-[46%]"
+                            width="w-[46.5%]"
                             value={field.immunization_recommendations}
                             onChange={(e) => handleImmunizationFieldChange(field.id, 'immunization_recommendations', e.target.value)}
                         />

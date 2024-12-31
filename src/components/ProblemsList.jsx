@@ -64,7 +64,7 @@ export const ProblemsList = ({ formData, setFormData, handleChange, handleQuillC
                         <InputWithLabel
                             title="Past Medical Diagnosis"
                             id={`past_medical_diagnosis_${diagnosis.id}`}
-                            width="w-[46%]"
+                            width="w-[46.5%]"
                             value={diagnosis.past_medical_diagnosis}
                             onChange={(e) => handleFieldChange(diagnosis.id, 'past_medical_diagnosis', e.target.value, 'medicalDiagnosis')}
                         />
@@ -72,7 +72,7 @@ export const ProblemsList = ({ formData, setFormData, handleChange, handleQuillC
                             type="date"
                             title="Medical Date"
                             id={`past_medical_date_${diagnosis.id}`}
-                            width="w-[46%]"
+                            width="w-[46.5%]"
                             value={diagnosis.past_medical_date}
                             onChange={(e) => handleFieldChange(diagnosis.id, 'past_medical_date', e.target.value, 'medicalDiagnosis')}
                         />
@@ -97,14 +97,14 @@ export const ProblemsList = ({ formData, setFormData, handleChange, handleQuillC
                         <InputWithLabel
                             title="Past Surgical Procedure"
                             id={`past_surgical_procedure_${procedure.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={procedure.past_surgical_procedure}
                             onChange={(e) => handleFieldChange(procedure.id, 'past_surgical_procedure', e.target.value, 'surgicalProcedures')}
                         />
                         <InputWithLabel
                             title="Past Surgical Laterality"
                             id={`past_surgical_laterality_${procedure.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={procedure.past_surgical_laterality}
                             onChange={(e) => handleFieldChange(procedure.id, 'past_surgical_laterality', e.target.value, 'surgicalProcedures')}
                         />
@@ -112,7 +112,7 @@ export const ProblemsList = ({ formData, setFormData, handleChange, handleQuillC
                             type="date"
                             title="Past Surgical Date"
                             id={`past_surgical_date_${procedure.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={procedure.past_surgical_date}
                             onChange={(e) => handleFieldChange(procedure.id, 'past_surgical_date', e.target.value, 'surgicalProcedures')}
                         />

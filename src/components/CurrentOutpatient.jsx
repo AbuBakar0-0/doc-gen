@@ -44,28 +44,28 @@ export const CurrentOutpatient = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Current Outpatient Medication"
                             id={`current_outpatient_medication_${outpatient.id}`}
-                            width="w-[22.5%]"
+                            width="w-[22.95%]"
                             value={outpatient.current_outpatient_medication}
                             onChange={(e) => handleFieldChange(outpatient.id, "current_outpatient_medication", e.target.value)}
                         />
                         <InputWithLabel
                             title="Current Outpatient SIG"
                             id={`current_outpatient_sig_${outpatient.id}`}
-                            width="w-[22.5%]"
+                            width="w-[22.95%]"
                             value={outpatient.current_outpatient_sig}
                             onChange={(e) => handleFieldChange(outpatient.id, "current_outpatient_sig", e.target.value)}
                         />
                         <InputWithLabel
                             title="Current Outpatient Dispense"
                             id={`current_outpatient_dispense_${outpatient.id}`}
-                            width="w-[22.5%]"
+                            width="w-[22.95%]"
                             value={outpatient.current_outpatient_dispense}
                             onChange={(e) => handleFieldChange(outpatient.id, "current_outpatient_dispense", e.target.value)}
                         />
                         <InputWithLabel
                             title="Current Outpatient Refill"
                             id={`current_outpatient_refill_${outpatient.id}`}
-                            width="w-[22.5%]"
+                            width="w-[22.95%]"
                             value={outpatient.current_outpatient_refill}
                             onChange={(e) => handleFieldChange(outpatient.id, "current_outpatient_refill", e.target.value)}
                         />

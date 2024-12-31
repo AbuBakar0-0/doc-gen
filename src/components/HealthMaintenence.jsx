@@ -78,7 +78,7 @@ export const HealthMaintenence = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Health Maintenance Topic"
                             id={`health_maintenance_topic_${field.id}`}
-                            width="w-[45%]"
+                            width="w-[46.4%]"
                             value={field.health_maintenance_topic}
                             onChange={(e) => handleHealthMaintenanceFieldChange(field.id, 'health_maintenance_topic', e.target.value)}
                         />
@@ -86,7 +86,7 @@ export const HealthMaintenence = ({ formData, setFormData, handleChange }) => {
                             type='date'
                             title="Health Maintenance Due Date"
                             id={`health_maintenence_due_date_${field.id}`}
-                            width="w-[45%]"
+                            width="w-[46.4%]"
                             value={field.health_maintenence_due_date}
                             onChange={(e) => handleHealthMaintenanceFieldChange(field.id, 'health_maintenence_due_date', e.target.value)}
                         />
@@ -111,7 +111,7 @@ export const HealthMaintenence = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Immunization Due Topic"
                             id={`immunization_due_topic_${field.id}`}
-                            width="w-[45%]"
+                            width="w-[46.4%]"
                             value={field.immunization_due_topic}
                             onChange={(e) => handleImmunizationFieldChange(field.id, 'immunization_due_topic', e.target.value)}
                         />
@@ -119,7 +119,7 @@ export const HealthMaintenence = ({ formData, setFormData, handleChange }) => {
                             type='date'
                             title="Immunization Due Due Date"
                             id={`immunization_due_due_date_${field.id}`}
-                            width="w-[45%]"
+                            width="w-[46.4%]"
                             value={field.immunization_due_due_date}
                             onChange={(e) => handleImmunizationFieldChange(field.id, 'immunization_due_due_date', e.target.value)}
                         />

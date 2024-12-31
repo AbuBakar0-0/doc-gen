@@ -38,21 +38,21 @@ export const FamilyHistory = ({ formData, setFormData, handleChange }) => {
                         <InputWithLabel
                             title="Problem"
                             id={`problem_${history.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={history.problem}
                             onChange={(e) => handleFieldChange(history.id, "problem", e.target.value)}
                         />
                         <InputWithLabel
                             title="Relation"
                             id={`relation_${history.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={history.relation}
                             onChange={(e) => handleFieldChange(history.id, "relation", e.target.value)}
                         />
                         <InputWithLabel
                             title="Age of Onset"
                             id={`age_of_onset_${history.id}`}
-                            width="w-[30.5%]"
+                            width="w-[30.8%]"
                             value={history.age_of_onset}
                             onChange={(e) => handleFieldChange(history.id, "age_of_onset", e.target.value)}
                         />

@@ -107,7 +107,7 @@ export default function Formdata() {
 
   return (
     <>
-      <div className="w-full h-20 shadow-lg flex flex-row justify-between items-center px-20 bg-gradient-to-r from-[#0073b9]/75 to-[#4ec39e]">
+      <div className="w-full h-20 shadow-lg flex flex-row justify-between items-center px-20 bg-gradient-to-r from-[#ffffff] to-[#0072b9]">
         <Image src={"assets/logo.svg"} width={200} height={100} alt="logo" />
         <h1
           className={`font-semibold text-white text-center text-lg uppercase`}

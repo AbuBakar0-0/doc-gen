@@ -47,13 +47,13 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                 value={formData.physical_exam}
                 onChange={(content, id) => handleQuillChange(content, id)}
             />
-            <div className='w-[90%] flex flex-wrap gap-2'>
+            <div className='w-[94%] flex flex-wrap gap-2'>
                 {formData.medicationLists.map((medication) => (
                     <div key={medication.id} className="w-full flex flex-wrap gap-2">
                         <InputWithLabel
                             title="Medication List Title"
                             id={`medication_list_title_${medication.id}`}
-                            width="w-[18%]"
+                            width="w-[18.2%]"
                             value={medication.medication_list_title}
                             onChange={(e) =>
                                 handleMedicationChange(medication.id, 'medication_list_title', e.target.value)
@@ -62,7 +62,7 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                         <InputWithLabel
                             title="Medication List Description"
                             id={`medication_list_description_${medication.id}`}
-                            width="w-[18%]"
+                            width="w-[18.2%]"
                             value={medication.medication_list_description}
                             onChange={(e) =>
                                 handleMedicationChange(medication.id, 'medication_list_description', e.target.value)
@@ -71,7 +71,7 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                         <InputWithLabel
                             title="Medication List Refills"
                             id={`medication_list_refills_${medication.id}`}
-                            width="w-[18%]"
+                            width="w-[18.2%]"
                             value={medication.medication_list_refills}
                             onChange={(e) =>
                                 handleMedicationChange(medication.id, 'medication_list_refills', e.target.value)
@@ -80,7 +80,7 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                         <InputWithLabel
                             title="Medication List Start Date"
                             id={`medication_list_start_date_${medication.id}`}
-                            width="w-[18%]"
+                            width="w-[18.2%]"
                             type="date"
                             value={medication.medication_list_start_date}
                             onChange={(e) =>
@@ -90,7 +90,7 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                         <InputWithLabel
                             title="Medication List End Date"
                             id={`medication_list_end_date_${medication.id}`}
-                            width="w-[18%]"
+                            width="w-[18.2%]"
                             type="date"
                             value={medication.medication_list_end_date}
                             onChange={(e) =>
