@@ -253,7 +253,7 @@ export default function Formdata() {
           />
         </div>
       </div>
-      <Button type="submit" onClick={handleSubmit}>
+      <Button type="submit" onClick={handleSubmit} className="mx-20 mb-20">
         Download Doc
       </Button>
     </>
