@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/Button';
 import InputWithLabel from "./ui/InputWithLabel";
 import TextEditor from "./ui/TextEditor";
 
-export const ExamMedications = ({ formData, setFormData, handleQuillChange }) => {
+export const ExamMedications = ({ formData, setFormData, handleQuillChange, handleChange }) => {
     const handleAdd = () => {
         setFormData((prev) => ({
             ...prev,
@@ -46,6 +46,27 @@ export const ExamMedications = ({ formData, setFormData, handleQuillChange }) =>
                 width="w-[100%] mb-10"
                 value={formData.physical_exam}
                 onChange={(content, id) => handleQuillChange(content, id)}
+            />
+            <InputWithLabel
+                title="Orders Placed"
+                id={"orders_placed"}
+                width="w-[32.5%]"
+                value={formData.orders_placed}
+                onChange={handleChange}
+            />
+            <InputWithLabel
+                title="Medication Changes"
+                id={"medication_changes"}
+                width="w-[32.5%]"
+                value={formData.medication_changes}
+                onChange={handleChange}
+            />
+            <InputWithLabel
+                title="Medication Changes Date TIme"
+                id={"medication_changes_date_time"}
+                width="w-[32.5%]"
+                value={formData.medication_changes_date_time}
+                onChange={handleChange}
             />
             <div className='w-[94%] flex flex-wrap gap-2'>
                 {formData.medicationLists.map((medication) => (

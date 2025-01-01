@@ -5,8 +5,7 @@ export const SocialDeterminants = ({ formData, handleChange, handleQuillChange }
     return (
         <div className="w-full flex flex-wrap justify-start items-start gap-2">
             <InputWithLabel
-                type="date"
-                title="Social Date"
+                title="Financial Resource Strain"
                 id="social_date"
                 width="w-[32.8%]"
                 value={formData.social_date}

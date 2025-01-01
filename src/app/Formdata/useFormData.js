@@ -2,6 +2,9 @@ import { useState } from "react";
 
 export const UseFormData = () => {
   const [formData, setFormData] = useState({
+    first_page_date: "",
+    header_date_time: "",
+    header_fax: "",
     //======================================> Patient Info
     date: "",
     first_name: "",
@@ -67,6 +70,9 @@ export const UseFormData = () => {
 
     //======================================> Exam + Medication
     physical_exam: "",
+    orders_placed: "",
+    medication_changes: "",
+    medication_changes_date_time: "",
     medicationLists: [
       {
         id: 1,
@@ -276,10 +282,17 @@ export const UseFormData = () => {
     //======================================> Orders Placed 2
     orders_placed_2: "",
     medication_changes_2: "",
-    medication_2: "",
-    refills_2: "",
-    start_date_2: "",
-    end_date_2: "",
+    medication_changes_date_time_2: "",
+    medicationLists2: [
+      {
+        id: 1,
+        medication_list_title: "",
+        medication_list_description: "",
+        medication_list_refills: "",
+        medication_list_start_date: "",
+        medication_list_end_date: "",
+      },
+    ],
     visit_diagnosis_2: "",
     visit_diagnosis_2_details: "",
 

@@ -73,71 +73,37 @@ export const Allergies = ({ formData, setFormData, handleChange }) => {
         <div className="w-full flex flex-wrap justify-between items-start gap-2">
             {/* Render allergen entries */}
             <div className='w-[94%] flex flex-wrap gap-2'>
-            {formData.allergens.map((allergen) => (
-                <div key={allergen.id} className="w-full flex flex-wrap gap-2">
-                    <InputWithLabel
-                        title="Allergen"
-                        id={`allergen_${allergen.id}`}
-                        width="w-[46.5%]"
-                        value={allergen.allergen}
-                        onChange={(e) => handleAllergenFieldChange(allergen.id, 'allergen', e.target.value)}
-                    />
-                    <InputWithLabel
-                        title="Reactions"
-                        id={`reactions_${allergen.id}`}
-                        width="w-[46.5%]"
-                        value={allergen.reactions}
-                        onChange={(e) => handleAllergenFieldChange(allergen.id, 'reactions', e.target.value)}
-                    />
-                    <Button
-                        className="mt-7"
-                        onClick={() => handleDeleteAllergen(allergen.id)}
-                        disabled={formData.allergens.length === 1}
-                    >
-                        Delete
-                    </Button>
-                </div>
-            ))}
+                {formData.allergens.map((allergen) => (
+                    <div key={allergen.id} className="w-full flex flex-wrap gap-2">
+                        <InputWithLabel
+                            title="Allergen"
+                            id={`allergen_${allergen.id}`}
+                            width="w-[46.5%]"
+                            value={allergen.allergen}
+                            onChange={(e) => handleAllergenFieldChange(allergen.id, 'allergen', e.target.value)}
+                        />
+                        <InputWithLabel
+                            title="Reactions"
+                            id={`reactions_${allergen.id}`}
+                            width="w-[46.5%]"
+                            value={allergen.reactions}
+                            onChange={(e) => handleAllergenFieldChange(allergen.id, 'reactions', e.target.value)}
+                        />
+                        <Button
+                            className="mt-7"
+                            onClick={() => handleDeleteAllergen(allergen.id)}
+                            disabled={formData.allergens.length === 1}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+                ))}
             </div>
             {/* First Add button: Add allergen and reaction */}
             <Button className="mt-7" onClick={handleAddAllergen}>
-                Add + 
-            </Button>
-
-            {/* Render health maintenance entries */}
-            <div className='w-[94%] flex flex-wrap gap-2'>
-            {formData.healthMaintenances.map((maintenance) => (
-                <div key={maintenance.id} className="w-full flex flex-wrap gap-2">
-                    <InputWithLabel
-                        title="Health Maintenance Topic"
-                        id={`health_maintenence_topic_${maintenance.id}`}
-                        width="w-[46.5%]"
-                        value={maintenance.health_maintenence_topic}
-                        onChange={(e) => handleHealthMaintenanceFieldChange(maintenance.id, 'health_maintenence_topic', e.target.value)}
-                    />
-                    <InputWithLabel
-                        title="Health Maintenance Due Date"
-                        id={`health_maintenence_due_date_${maintenance.id}`}
-                        width="w-[46.5%]"
-                        value={maintenance.health_maintenence_due_date}
-                        onChange={(e) => handleHealthMaintenanceFieldChange(maintenance.id, 'health_maintenence_due_date', e.target.value)}
-                    />
-                    <Button
-                        className="mt-7"
-                        onClick={() => handleDeleteHealthMaintenance(maintenance.id)}
-                        disabled={formData.healthMaintenances.length === 1}
-                    >
-                        Delete
-                    </Button>
-                </div>
-            ))}
-            </div>
-            {/* Second Add button: Add Health Maintenance (Topic & Due Date) */}
-            <Button className="mt-7" onClick={handleAddHealthMaintenance}>
                 Add +
             </Button>
 
-            {/* Other static inputs */}
             <InputWithLabel
                 title="Immunizations"
                 id="immunizations"
@@ -146,6 +112,42 @@ export const Allergies = ({ formData, setFormData, handleChange }) => {
                 onChange={handleChange}
             />
 
+            {/* Render health maintenance entries */}
+            <div className='w-[94%] flex flex-wrap gap-2'>
+                {formData.healthMaintenances.map((maintenance) => (
+                    <div key={maintenance.id} className="w-full flex flex-wrap gap-2">
+                        <InputWithLabel
+                            title="Health Maintenance Topic"
+                            id={`health_maintenence_topic_${maintenance.id}`}
+                            width="w-[46.5%]"
+                            value={maintenance.health_maintenence_topic}
+                            onChange={(e) => handleHealthMaintenanceFieldChange(maintenance.id, 'health_maintenence_topic', e.target.value)}
+                        />
+                        <InputWithLabel
+                            type='date'
+                            title="Health Maintenance Due Date"
+                            id={`health_maintenence_due_date_${maintenance.id}`}
+                            width="w-[46.5%]"
+                            value={maintenance.health_maintenence_due_date}
+                            onChange={(e) => handleHealthMaintenanceFieldChange(maintenance.id, 'health_maintenence_due_date', e.target.value)}
+                        />
+                        <Button
+                            className="mt-7"
+                            onClick={() => handleDeleteHealthMaintenance(maintenance.id)}
+                            disabled={formData.healthMaintenances.length === 1}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+                ))}
+            </div>
+            {/* Second Add button: Add Health Maintenance (Topic & Due Date) */}
+            <Button className="mt-7" onClick={handleAddHealthMaintenance}>
+                Add +
+            </Button>
+
+            {/* Other static inputs */}
+            
             <InputWithLabel
                 title="Medicare Screening"
                 id="medicare_screening"
