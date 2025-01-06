@@ -15,7 +15,7 @@ export default function Layout({ children }) {
   const { handleSubmit } = useFormData();
 
   const urlList = [
-    { name: "Header Footer", url: "/" },
+    { name: "Header Footer", url: "/HeaderFooter" },
     { name: "Patient Info", url: "/PatientInfo" },
     { name: "Physicians Info", url: "/PhysiciansInfo" },
     { name: "Office Info", url: "/OfficeInfo" },

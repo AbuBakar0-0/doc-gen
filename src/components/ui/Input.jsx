@@ -15,7 +15,7 @@ const formatPhoneNumber = (value) => {
   }
 };
 
-const Input = React.forwardRef(({ className, type, value, onChange, placeholder, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, value, onChange, placeholder="", ...props }, ref) => {
   const handleChange = (e) => {
     const newValue = e.target.value;
     // Format phone numbers or fax numbers specifically
