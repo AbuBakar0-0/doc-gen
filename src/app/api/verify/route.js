@@ -24,7 +24,7 @@ export async function GET(request) {
     }
 
     // Return success response with a redirect
-    return NextResponse.redirect("http://localhost:3000?verified=true"); // Redirect to a success page after verification
+    return NextResponse.redirect("https://doc-gen-xi.vercel.app/?verified=true"); // Redirect to a success page after verification
     
   } catch (error) {
     console.error("Error processing request:", error);

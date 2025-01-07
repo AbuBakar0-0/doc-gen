@@ -24,7 +24,7 @@ export async function POST(request) {
     const text = "Please click the button below to verify your account.";
     const html = `
       <p>${text}</p>
-      <a href="http://localhost:3000/api/verify?id=${id}" style='background-color:black;color:white;'>Verify Account</a>
+      <a href="https://doc-gen-xi.vercel.app/api/verify?id=${id}" style='background-color:black;color:white;'>Verify Account</a>
     `;
 
     const info = await transporter.sendMail({
