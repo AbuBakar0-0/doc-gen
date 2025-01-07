@@ -52,7 +52,7 @@ export default function ExamMedications() {
         id="physical_exam"
         width="w-[100%] mb-10"
         value={formData.physical_exam}
-        onChange={(content, id) => handleQuillChange(content, id)}
+        onChange={handleChange} // Pass the event to the handler
       />
       <InputWithLabel
         title="Orders Placed"

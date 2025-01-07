@@ -1,24 +1,25 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Label } from "./Label";
 
-// Dynamically import ReactQuill
-const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
-
-import "react-quill-new/dist/quill.snow.css";
-
-const TextEditor = ({ title = "", id, width = "w-[32%]", value, onChange, height = "h-[8.5rem]" }) => {
+const TextEditor = ({
+    title = "",
+    id,
+    width = "w-[32%]",
+    value,
+    onChange,
+    height = "h-[8.5rem]"
+}) => {
     return (
         <div className={`${width} flex flex-col gap-1.5 my-2`}>
             <Label htmlFor={id}>{title}</Label>
-            <ReactQuill
-                className={`${height}`}
-                theme="snow"
+            <textarea
+                id={id}
+                name={id}
                 value={value}
-                onChange={(content) => onChange(content, id)} // Pass the content and id to the handler
-                id={id} // For semantics or debugging
-                name={id} // Optional, same purpose as id
+                onChange={onChange}
+                className={`border border-gray-300 rounded-md p-2 ${height} resize-none focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                placeholder={`Enter ${title.toLowerCase()} here...`}
             />
         </div>
     );

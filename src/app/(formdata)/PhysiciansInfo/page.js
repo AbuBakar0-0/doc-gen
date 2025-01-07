@@ -72,7 +72,7 @@ export default function PhysiciansInfo() {
         id="diagnosis"
         width="w-[50%]"
         value={formData.diagnosis} // Controlled value
-        onChange={(content, id) => handleQuillChange(content, id)} // Pass to handleQuillChange
+        onChange={handleChange} // Pass to handleQuillChange
       />
     </div>
   );

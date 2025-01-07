@@ -3,17 +3,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { useFormData } from "@/context/FormDataContext";
 import { FaUserDoctor } from "react-icons/fa6";
+import { MdLogout } from "react-icons/md";
+import { deleteCookie } from "cookies-next";
 
 export default function Layout({ children }) {
+  const { resetForm } = useFormData();
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const currentPath = usePathname();
+  const router = useRouter();
 
   const { handleSubmit } = useFormData();
 
+  const handleLogout = () => {
+    deleteCookie("auth_token", {
+      path: "/", // Optional, ensure it's deleted across the entire domain
+    });
+    router.push("/");
+  };
   const urlList = [
     { name: "Header Footer", url: "/HeaderFooter" },
     { name: "Patient Info", url: "/PatientInfo" },
@@ -73,7 +84,9 @@ export default function Layout({ children }) {
                     {item.name}
                   </li>
                 </div>
-                {index!=urlList.length-1?<div className="w-11/12 h-[0.5px] bg-white" />:null}
+                {index != urlList.length - 1 ? (
+                  <div className="w-11/12 h-[0.5px] bg-white" />
+                ) : null}
               </Link>
             ))}
           </ul>
@@ -117,13 +130,26 @@ export default function Layout({ children }) {
             <h1 className="text-2xl font-bold text-white">
               Document Generator
             </h1>
-            <Button
-              type="submit"
-              onClick={handleSubmit}
-              className="bg-secondaryBlue mx-2 hover:bg-white hover:text-secondaryBlue"
-            >
-              Download Doc
-            </Button>
+            <div className="flex gap-2 justify-center items-center">
+              <Button
+                type="submit"
+                onClick={handleSubmit}
+                className="bg-secondaryBlue mx-2 hover:bg-white hover:text-secondaryBlue"
+              >
+                Download Doc
+              </Button>
+              <Button
+                variant="destructive"
+                onClick={() => resetForm()}
+              >
+                Reset Form
+              </Button>
+
+              <MdLogout
+                className="size-6 text-white"
+                onClick={() => handleLogout()}
+              />
+            </div>
           </div>
         </header>
 

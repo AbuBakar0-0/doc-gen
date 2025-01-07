@@ -511,6 +511,10 @@ export const FormDataProvider = ({ children }) => {
     });
   };
 
+  const resetForm = () => {
+    setFormData(initialFormData);
+  };
+
   return (
     <FormDataContext.Provider
       value={{
@@ -520,6 +524,7 @@ export const FormDataProvider = ({ children }) => {
         setFormData,
         handleChange,
         handleQuillChange,
+        resetForm,
       }}
     >
       {children}

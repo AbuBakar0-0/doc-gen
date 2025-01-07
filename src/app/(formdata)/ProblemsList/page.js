@@ -60,8 +60,8 @@ export default function ProblemsList (){
                 id="patient_active_diagnosis"
                 width="w-[100%] mb-10"
                 value={formData.patient_active_diagnosis}
-                onChange={(content, id) => handleQuillChange(content, id)} // Pass to handleQuillChange
-            />
+                onChange={handleChange} // Pass the event to the handler
+                />
 
             {/* Medical Diagnosis Section */}
             <div className='w-[93%] flex flex-wrap gap-2'>

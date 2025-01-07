@@ -1,5 +1,6 @@
 "use client";
 
+import Signin from "@/app/actions/(auth)/signin/action";
 import { Button } from "@/components/ui/Button";
 import {
   Card,
@@ -10,10 +11,10 @@ import {
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { cn } from "@/lib/utils";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export function SigninForm({ className, ...props }) {
   const [formData, setFormData] = useState({
@@ -35,24 +36,20 @@ export function SigninForm({ className, ...props }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create payload to send to endpoint
     const payload = {
       email: formData.email,
       password: formData.password,
     };
 
-    try {
-      const response = await axios.post(
-        "/api/signin",
-        payload
-      );
-      console.log("Signin Successfull:", response.data);
-
-      alert("Signin Successfull!");
+    toast.loading("Please Wait");
+    const response = await Signin(payload);
+    toast.dismiss();
+    if (response.error == undefined) {
+      toast.success("Signin Successfull!");
       router.push('/HeaderFooter');
-    } catch (error) {
-      console.error("Signin failed:", error);
-      alert("Signin failed. Please try again.");
+    }
+    else {
+      toast.error(response.error);
     }
   };
 

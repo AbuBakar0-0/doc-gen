@@ -1,5 +1,6 @@
 "use client";
 
+import { Signup } from "@/app/actions/(auth)/signup/action";
 import { Button } from "@/components/ui/Button";
 import {
   Card,
@@ -10,12 +11,14 @@ import {
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useState } from "react";
 import axios from "axios";
 import md5 from "md5";
+import Link from "next/link";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 export function SignupForm({ className, ...props }) {
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,28 +34,28 @@ export function SignupForm({ className, ...props }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    toast.loading("Please Wait");
     // Encrypt password with md5
     const encryptedPassword = md5(formData.password);
-
-    // Create payload to send to endpoint
     const payload = {
       email: formData.email,
       password: encryptedPassword,
     };
-
-    try {
-      // Replace `https://your-api-endpoint.com/register` with your actual endpoint
-      const response = await axios.post(
-        "/api/signup",
-        payload
-      );
-
-      console.log("Registration successful:", response.data);
-      alert("Registration successful!");
-    } catch (error) {
+    const response = await Signup(payload);
+    console.log();
+    toast.dismiss();
+    if (response.error == undefined) {
+      const emailPayload = {
+        id: response.user.id,
+        email: formData.email, // Include the email in the payload
+      };
+      await axios.post('/api/sendEmail', emailPayload); // Send email and userId to the verify API
+      toast.success("Email Sent!");
+      // router.push("/");
+    }
+    else {
       console.error("Registration failed:", error);
-      alert("Registration failed. Please try again.");
+      toast.error("Registration failed. Please try again.");
     }
   };
 

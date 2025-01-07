@@ -1,10 +1,9 @@
-import { SigninForm } from '@/components/signin-form'
-import React from 'react'
+import { SigninForm } from '@/components/signin-form';
 
 export default function Signin() {
   return (
     <>
-        <SigninForm/>
+      <SigninForm />
     </>
-  )
+  );
 }

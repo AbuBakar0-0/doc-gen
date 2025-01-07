@@ -6,8 +6,7 @@ import TextEditor from "@/components/ui/TextEditor";
 import { useFormData } from "@/context/FormDataContext";
 
 export default function OfficeInfo() {
-  const { formData, setFormData, handleChange, handleQuillChange } =
-    useFormData();
+  const { formData, handleChange } = useFormData();
 
   return (
     <div className="w-full flex flex-wrap justify-between items-start gap-2">
@@ -96,7 +95,7 @@ export default function OfficeInfo() {
         id="chief_complaint_description"
         width="w-[49%]"
         value={formData.chief_complaint_description}
-        onChange={(content, id) => handleQuillChange(content, id)} // Pass to handleQuillChange
+        onChange={handleChange} // Pass the event to the handler
       />
     </div>
   );

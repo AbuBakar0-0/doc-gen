@@ -10,7 +10,7 @@ export default function AssessmentPlan() {
   const { formData, setFormData, handleChange, handleQuillChange } =
     useFormData();
 
-    // Handler to add a new doctor's name input
+  // Handler to add a new doctor's name input
   const handleAddDoctor = () => {
     setFormData((prev) => ({
       ...prev,
@@ -45,7 +45,7 @@ export default function AssessmentPlan() {
 
   return (
     <div className="w-full flex flex-wrap justify-start items-start gap-2">
-      <Divider title={"Assessment/Plan"}/>
+      <Divider title={"Assessment/Plan"} />
       <InputWithLabel
         title="Assessment and Plan"
         id="assessment_plan_2"
@@ -79,7 +79,7 @@ export default function AssessmentPlan() {
         id="depression_detail"
         width="w-[49%] mb-10"
         value={formData.depression_detail}
-        onChange={(content, id) => handleQuillChange(content, id)}
+        onChange={handleChange} // Pass the event to the handler
       />
 
       {/* Render the list of doctor's name input fields dynamically */}

@@ -1,5 +1,6 @@
 import { FormDataProvider } from "@/context/FormDataContext";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Doc Profiler",
@@ -10,7 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <FormDataProvider>{children}</FormDataProvider>
+        <FormDataProvider>
+          <Toaster position="top-center" />
+          {children}
+        </FormDataProvider>
       </body>
     </html>
   );
